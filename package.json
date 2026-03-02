@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-energy-procurement",
+  "version": "1.0.0",
+  "description": "Energy procurement optimization backend - minimize cost over spot and package purchases",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "run": "node src/index.js",
+    "test": "node test/run-tests.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

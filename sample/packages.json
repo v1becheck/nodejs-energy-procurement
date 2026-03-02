@@ -1,0 +1,14 @@
+[
+  {
+    "durationHours": 24,
+    "maxEnergyMWh": 100,
+    "fee": 35.0,
+    "discountPercent": 12.5
+  },
+  {
+    "durationHours": 8,
+    "maxEnergyMWh": 30,
+    "fee": 8.0,
+    "discountPercent": 20.0
+  }
+]
