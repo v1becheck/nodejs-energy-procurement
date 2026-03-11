@@ -9,6 +9,7 @@
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "db:seed": "tsx scripts/seed-db.ts",
+    "db:import": "tsx scripts/import-files-to-db.ts",
     "test": "node test/run-tests.js"
   },
   "engines": {

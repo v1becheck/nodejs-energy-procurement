@@ -51,6 +51,16 @@ Uses `sample/prices.csv`, `sample/demand.csv`, and `sample/packages.json` by def
 
 With `DATABASE_URL` set, the app loads prices, demand, and packages from PostgreSQL instead of files.
 
+**Import the task's input files into PostgreSQL** (after schema is applied):
+
+```bash
+# Default: prices.csv demand.csv packages.json in cwd
+npm run db:import
+
+# Or pass paths (relative to cwd)
+npm run db:import -- path/to/prices.csv path/to/demand.csv path/to/packages.json
+```
+
 ## Testing with PostgreSQL (local setup)
 
 ### Option A: PostgreSQL installed locally (Windows)
@@ -189,6 +199,21 @@ scripts/
   seed-db.ts       # Seed DB from sample/ CSVs and JSON
 sample/            # Sample input files (CSV + JSON)
 ```
+
+## Task requirements (from spec)
+
+| Requirement | Status |
+|-------------|--------|
+| Node.js program | ✅ TypeScript, runs with Node |
+| Load and parse input | ✅ From files (CSV/JSON) or from PostgreSQL |
+| Compute optimal purchasing strategy | ✅ Greedy optimizer (candidates + selection) |
+| Output format (totalCost, packagesPurchased, statistics) | ✅ Exact JSON shape |
+| Correct and efficient for large inputs | ✅ Streaming CSVs; caps for 500k rows / 1M packages |
+| **Stack: PostgreSQL + TypeScript** | ✅ Schema, DB client, load from DB; full TS codebase |
+| Instructions to run | ✅ This README |
+| Brief explanation of approach | ✅ Approach section above |
+
+**Bonus (optional):** Benchmarks and design/optimization notes are not implemented; the README documents the approach and scaling choices.
 
 ## Requirements
 
