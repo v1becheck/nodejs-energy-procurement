@@ -149,6 +149,30 @@ To use your own CSV/JSON files when not using PostgreSQL:
 node dist/index.js path/to/prices.csv path/to/demand.csv path/to/packages.json
 ```
 
+## Benchmarks
+
+Run the optimizer at different input sizes (synthetic data, in-memory):
+
+```bash
+npm run benchmark
+```
+
+Default sizes: **hours** 100, 1k, 5k, 10k, 25k × **packages** 10, 50, 100, 500. The script reports optimization time per run and a summary table.
+
+Custom sizes (comma-separated):
+
+```bash
+# Windows
+set BENCHMARK_HOURS=1000,50000
+set BENCHMARK_PACKAGES=10,100,1000
+npm run benchmark
+
+# Unix/macOS
+BENCHMARK_HOURS=1000,50000 BENCHMARK_PACKAGES=10,100,1000 npm run benchmark
+```
+
+Times depend on your machine; the table lets you compare how runtime scales with hours and package count.
+
 ## PostgreSQL schema
 
 Tables used when `DATABASE_URL` is set:
@@ -197,6 +221,8 @@ src/
 schema.sql         # PostgreSQL DDL
 scripts/
   seed-db.ts       # Seed DB from sample/ CSVs and JSON
+  import-files-to-db.ts  # Import arbitrary prices/demand/packages files into DB
+  benchmark.ts     # Run optimizer at different input sizes, report timings
 sample/            # Sample input files (CSV + JSON)
 ```
 
@@ -213,7 +239,7 @@ sample/            # Sample input files (CSV + JSON)
 | Instructions to run | ✅ This README |
 | Brief explanation of approach | ✅ Approach section above |
 
-**Bonus (optional):** Benchmarks and design/optimization notes are not implemented; the README documents the approach and scaling choices.
+**Bonus:** Benchmarks are implemented (see **Benchmarks** section). The README documents the approach and scaling choices.
 
 ## Requirements
 

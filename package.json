@@ -10,6 +10,7 @@
     "dev": "tsx src/index.ts",
     "db:seed": "tsx scripts/seed-db.ts",
     "db:import": "tsx scripts/import-files-to-db.ts",
+    "benchmark": "tsx scripts/benchmark.ts",
     "test": "node test/run-tests.js"
   },
   "engines": {
